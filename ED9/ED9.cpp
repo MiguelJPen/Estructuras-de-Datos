@@ -2,6 +2,13 @@
 
 #include "Inverter.h"
 
+/*
+Miguel Jesús Peñalver Carvajal
+
+Este programa realiza la inversión de una lista de números enteros. La clase "Inverter", que hereda de deque,
+es la encargada de realizar la inversión de la lista y de imprimirla por pantalla.
+*/
+
 bool resuelveCaso() {
 	int aux;
 	Inverter<int> list;
