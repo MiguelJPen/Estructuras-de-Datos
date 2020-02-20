@@ -117,6 +117,10 @@
   <ItemGroup>
     <ClCompile Include="ED9.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="deque_eda.h" />
+    <ClInclude Include="Inverter.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
