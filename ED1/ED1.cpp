@@ -6,7 +6,7 @@
 #include"Time.h"
 
 /*
-Miguel Peñalver Carvajal
+Miguel Peñalver Carvajal BLA BLA BLA
 
 Comprobamos la menor hora registrada para que pase el siguiente tren. En caso de que dicha hora consultada sea demasiado tarde,
 es decir, no haya trenes más tarde ese día, se escribirá "NO". Si la hora que tratamos de consultar es incorrecta, se escribirá
