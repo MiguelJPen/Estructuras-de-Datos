@@ -15,8 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ED9.cpp">
+    <ClCompile Include="ED4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Monomy.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Polynomial.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
