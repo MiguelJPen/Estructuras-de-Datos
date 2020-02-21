@@ -2,24 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/ED1/.vs/ED1/v15
-/ED1/Debug/ED1.tlog
-/ED1/x64/Debug/ED1.tlog
-/ED1/x64/Debug/vc141.pdb
-/ED1/x64/Debug/vc141.idb
-/ED1/x64/Debug/ED1.pdb
-/ED1/x64/Debug/ED1.obj
-/ED1/x64/Debug/ED1.log
-/ED1/x64/Debug/ED1.ilk
-/ED1/x64/Debug/ED1.exe
-/ED4/x64/Debug
-/ED4/Debug
-/ED4/.vs/ED4/v15
-/ED9/.vs/ED9/v15/ipch/AutoPCH/e58460e1c1c9a6b0
-/ED9/.vs/ED9/v15/Browse.VC.db
-/ED9/.vs/ED9/v15/.suo
-/ED5/.vs/ED5/v15
-/ED6/.vs/ED6/v15
-/ED7/.vs/ED7/v15
-/ED9/.vs/ED9/v15
-/ED10/.vs/ED10/v15
+/ED8/.vs/ED8/v15
