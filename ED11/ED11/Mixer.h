@@ -17,44 +17,45 @@ public:
 		Nodo *aux2 = l2.prim;
 		Nodo *auxSig = (aux == nullptr ? nullptr : aux->sig), *aux2Sig;
 
-		if (aux2->elem < aux->elem) {
-			this->prim = aux2;
-			auxSig = aux->sig;
-			aux2Sig = aux2->sig;
-			aux2->sig = aux;
-			aux = auxSig;
-			auxSig = aux->sig;
-			aux2 = aux2Sig;
-			l2.prim = aux2Sig;
-			--l2.nelems;
-			++this->nelems;
-		}
-		while (!l2.empty()) {
-			if (auxSig == nullptr) {
-				aux->sig = aux2;
-				aux = aux->sig;
-				aux2 = aux2->sig;
-				l2.prim = aux2;
-				--l2.nelems;
-				++this->nelems;
-			}
-			else if (aux2->elem > aux->elem && aux2->elem < auxSig->elem) {
-				auxSig = aux->sig;
+		if (!this->empty() && !l2.empty()) {
+			if (aux2->elem < aux->elem) {
+				this->prim = aux2;
 				aux2Sig = aux2->sig;
-				aux->sig = aux2;
-				aux2->sig = auxSig;
-				aux = auxSig;
+				aux2->sig = aux;
+				aux = aux2;
 				auxSig = aux->sig;
 				aux2 = aux2Sig;
 				l2.prim = aux2Sig;
 				--l2.nelems;
 				++this->nelems;
 			}
-			else {
-				aux = aux->sig;
-				auxSig = aux->sig;
+			while (!l2.empty()) {
+				if (auxSig == nullptr) {
+					aux->sig = aux2;
+					aux = aux->sig;
+					aux2 = aux2->sig;
+					l2.prim = aux2;
+					--l2.nelems;
+					++this->nelems;
+				}
+				else if (aux2->elem > aux->elem && aux2->elem < auxSig->elem) {
+					aux2Sig = aux2->sig;
+					aux->sig = aux2;
+					aux2->sig = auxSig;
+					aux = aux2;
+					auxSig = aux->sig;
+					aux2 = aux2Sig;
+					l2.prim = aux2Sig;
+					--l2.nelems;
+					++this->nelems;
+				}
+				else {
+					aux = aux->sig;
+					auxSig = aux->sig;
+				}
 			}
 		}
+		else if (!l2.empty()) this->copia(l2);
 	}
 	// Imprime la lista por pantalla.
 	void print(std::ostream& output = std::cout) const {
