@@ -1,27 +1,27 @@
 #include <iostream>
+#include <algorithm>
 
 /*
 Miguel Jesús Peñalver Carvajal
 */
 
-void numPrec(int const nJefes, int &numPrecarios, int prof) {
-	int max, n;
+int numPrec(int const nJefes, int numPrecarios, int prof) {
+	int n;
 	std::cin >> n;
 	if (n == 0 && prof >= nJefes) {
-		++numPrecarios;
-		return;
+		return ++numPrecarios;
 	}
 	for (int i = 0; i < n; ++i)
-		numPrec(nJefes, numPrecarios, prof + 1);
+		numPrecarios = std::max(numPrecarios, numPrec(nJefes, numPrecarios, prof + 1));
+	return numPrecarios;
 }
 
 bool resuelveCaso() {
-	int nJefes, numPrecarios = 0;
+	int nJefes;
 	std::cin >> nJefes;
 	if (std::cin.fail()) return false;
 
-	numPrec(nJefes, numPrecarios, 0);
-	std::cout << numPrecarios << '\n';
+	std::cout << numPrec(nJefes, 0, 0) << '\n';
 
 	return true;
 }
