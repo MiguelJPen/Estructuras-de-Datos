@@ -13,49 +13,36 @@ class Mixer : public queue<T> {
 	using Nodo = typename queue<T>::Nodo;
 public:
 	void mix(Mixer &l2) {
+		// La función mix tiene un coste lineal respecto a la suma de elementos de ambas listas.
 		Nodo *aux = this->prim;
 		Nodo *aux2 = l2.prim;
-		Nodo *auxSig = (aux == nullptr ? nullptr : aux->sig), *aux2Sig;
+		Nodo nodo, *current = &nodo; // Creamos un nodo que va a ser el inicial y un puntero a dicho nodo.
 
-		if (!this->empty() && !l2.empty()) {
-			if (aux2->elem < aux->elem) {
-				this->prim = aux2;
-				aux2Sig = aux2->sig;
-				aux2->sig = aux;
-				aux = aux2;
-				auxSig = aux->sig;
-				aux2 = aux2Sig;
-				l2.prim = aux2Sig;
-				--l2.nelems;
-				++this->nelems;
+		// Creamos un nuevo nodo, el  cual nos servirá para enganchar la nueva lista ordenada, para 
+		// ello comparamos los primeros números de ambas listas y cogemos el menor.
+		while (aux != nullptr && aux2 != nullptr) {
+			if (aux->elem < aux2->elem) {
+				current->sig = aux;
+				aux = aux->sig;
 			}
-			while (!l2.empty()) {
-				if (auxSig == nullptr) {
-					aux->sig = aux2;
-					aux = aux->sig;
-					aux2 = aux2->sig;
-					l2.prim = aux2;
-					--l2.nelems;
-					++this->nelems;
-				}
-				else if (aux2->elem > aux->elem && aux2->elem < auxSig->elem) {
-					aux2Sig = aux2->sig;
-					aux->sig = aux2;
-					aux2->sig = auxSig;
-					aux = aux2;
-					auxSig = aux->sig;
-					aux2 = aux2Sig;
-					l2.prim = aux2Sig;
-					--l2.nelems;
-					++this->nelems;
-				}
-				else {
-					aux = aux->sig;
-					auxSig = aux->sig;
-				}
+			else {
+				current->sig = aux2;
+				aux2 = aux2->sig;
 			}
+			current = current->sig;
 		}
-		else if (!l2.empty()) this->copia(l2);
+		// Al acabar alguna de las dos listas, unimos el final que nos falta.
+		if (aux == nullptr) {
+			current->sig = aux2;
+			this->ult = l2.ult;
+		}
+		else current->sig = aux;
+
+		this->nelems += l2.nelems;
+		this->prim = nodo.sig;
+		l2.prim = nullptr;
+		l2.ult = nullptr;
+		l2.nelems = 0;
 	}
 	// Imprime la lista por pantalla.
 	void print(std::ostream& output = std::cout) const {

@@ -2,6 +2,13 @@
 
 #include "Mixer.h"
 
+/*
+Miguel Peñalver Carvajal
+
+En este problema leemos dos listas ordenadas y las unimos, de manera que tengamos los elementos 
+de esta nueva lista ordenados.
+*/
+
 void resuelveCaso() {
 	Mixer<long int> list, list2;
 	long int aux;
