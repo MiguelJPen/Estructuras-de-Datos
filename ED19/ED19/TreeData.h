@@ -3,37 +3,52 @@
 
 #include "bintree_eda.h"
 
+/*
+Miguel Jesús Peñalver Carvajal
+*/
+
 template <class T>
 class TreeData : public bintree<T> {
+	using Link = typename bintree<T>::Link;
 public:
+	TreeData() : bintree<T>() {}
+	TreeData(TreeData<T> const& l, T const& e, TreeData<T> const& r) : bintree<T>(l, e, r) {}
 
-	int leaves(TreeData<T> const& t) {
-		if (t.empty())
-			return 1;
-		return nodes(t.left()) + nodes(t.right());
+	int leaves() {
+		return leaves(this->raiz);
 	}
-	int nodes(TreeData<T> const& t) {
-		if (t.empty())
-			return 1;
-		return nodes(t.left()) + nodes(t.right()) + 1;
+	int nodes() {
+		return nodes(this->raiz);
 	}
-	int height(TreeData<T> const& t) {
-		if (t.empty()) return 0;
-		return max(height(t.left()), height(t.right())) + 1;
+	int height() {
+		return height(this->raiz);
+	}
+private:
+	static int height(Link r) {
+		if (r == nullptr) return 0;
+		return std::max(height(r->left), height(r->right)) + 1;
+	}
+	static int nodes(Link r) {
+		if (r == nullptr) return 0;
+		return nodes(r->left) + nodes(r->right) + 1;
+	}
+	static int leaves(Link r) {
+		if (r == nullptr) return 0;
+		if (r->left == nullptr && r->right == nullptr) return 1;
+		return leaves(r->left) + leaves(r->right);
 	}
 };
 
-// lee un árbol binario de la entrada estándar
 template <typename T>
-inline TreeData<T> readTree(T vacio) {
+TreeData<T> readTreeData(T vacio) {
 	T raiz;
 	std::cin >> raiz;
-	if (raiz == vacio) { // es un árbol vacío
+	if (raiz == vacio)
 		return {};
-	}
-	else { // leer recursivamente los hijos
-		auto iz = leerArbol(vacio);
-		auto dr = leerArbol(vacio);
+	
+	else {
+		auto iz = readTreeData(vacio);
+		auto dr = readTreeData(vacio);
 		return { iz, raiz, dr };
 	}
 }

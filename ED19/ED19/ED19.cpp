@@ -2,16 +2,22 @@
 
 #include "TreeData.h"
 
-void resuelveCaso() {
-	TreeData<char> t;
-	t = readTree('.');
+/*
+Miguel Jesús Peñalver Carvajal
 
-	std::cout << t.nodes(t) << ' ' << t.leaves(t) << ' ' << t.height(t);
+En este problema, con la clase TreeData extendemos la clase bintree y creamos tres funciones para calcular la altura,
+las hojas y los nodos de un árbol binario.
+*/
+
+void resuelveCaso() {
+	TreeData<char> t = readTreeData('.');
+
+	std::cout << t.nodes() << ' ' << t.leaves() << ' ' << t.height() << '\n';
 }
 
 int main() {
 	int n;
 	std::cin >> n;
-	while (--n) resuelveCaso();
+	while (n--) resuelveCaso();
 	return 0;
 }
