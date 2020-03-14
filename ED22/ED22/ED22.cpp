@@ -7,25 +7,25 @@
 Miguel Jesús Peñalver Carvajal
 
 En este problema calculamos, con una función externa a la clase bintree, el diámetro de un árbol.
-La función que calcula el diámetro devuelve la mayor altura entre los dos árboles hijos de un nodo, 
-mientras que almacena el mayor diámetro en una variable que pasamos por referencia, 'diameter'.
+La función que calcula el diámetro devuelve la mayor altura entre los dos árboles hijos de un nodo
+y el diámetro de ellos en un struct.
 El coste de esta función es lineal respecto al número de nodos.
 */
 
-int diam(bintree<char> const& t, int& diameter) {
-	if (t.empty()) return 0;
-	int left = diam(t.left(), diameter), right = diam(t.right(), diameter);
-	diameter = std::max(left + right + 1, diameter);
-	return std::max(left + 1, right + 1);
+typedef struct {
+	int height, diameter;
+} tTreeInfo;
+
+tTreeInfo diam(bintree<char> const& t) {
+	if (t.empty()) return { 0, 0 };
+	tTreeInfo l = diam(t.left()), r = diam(t.right());
+	return { std::max(l.height, r.height) + 1, std::max(std::max(l.diameter, r.diameter), l.height + r.height + 1)};
 }
 
 void resuelveCaso() {
 	bintree<char> t;
 	t = leerArbol('.');
-
-	int diameter = 0;
-	diam(t, diameter);
-	std::cout << diameter << '\n';
+	std::cout << diam(t).diameter << '\n';
 }
 
 int main() {
