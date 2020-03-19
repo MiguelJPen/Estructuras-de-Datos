@@ -9,7 +9,8 @@ Miguel Jesús Peñalver Carvajal
 En este problema, dada una lista de sobres y un número determinado de sobres a repartir,
 devolvemos una lista con el mayor sobre del montón que cogeríamos si vamos cogiendo 
 el número de sobres que necesitamos de manera seguida del montón.
-El coste de este programa es lineal respecto al número de sobres.
+El coste de este programa del orden de O (n log(k)), siendo n el número de sobres y k
+el número de comensales, debido a las operaciones sobre el multiset.
 */
 
 bool resuelveCaso() {
