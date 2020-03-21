@@ -115,6 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ED71.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Intercambiador.h" />
+    <ClInclude Include="queue_eda.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
