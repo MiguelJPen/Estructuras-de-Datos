@@ -10,7 +10,7 @@ Miguel Jesús Peñalver Carvajal
 
 En este problema, dado el recorrido en preorden y en inorden de un árbol binario, devolvemos el recorrido 
 en postorden. Para la implementación he utilizado colas.
-El coste de este algoritmo es lineal resepecto al número de nodos.
+El coste de este algoritmo es lineal respecto al número de nodos.
 */
 
 bintree<long int> treeGenerator(std::queue<long int> & preorder, std::queue<long int> & inorder) {
