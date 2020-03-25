@@ -1,20 +1,22 @@
 #include <iostream>
 #include <vector>
 
-#include "lowerB.h"
+#include "set_eda.h"
 
 /*
 Miguel Jesús Peñalver Carvajal
 
 En este problema implmentamos un la función lower_bound para set.
-Por la implementación de la función con el iterador, esta tiene complejidad lineal.
+He modificado el archivo set_eda.h para implementar dicha función y poder acceder a ciertos 
+campos internos, como los nodos del árbol. La función tiene complejidad logarítmica respecto
+al número de elementos de 'set'.
 */
 
 bool resuelveCaso() {
 	int nElems, aux;
 	std::cin >> nElems;
 	if (nElems == 0) return false;
-	lowerB<long int> conj;
+	set<long int> conj;
 
 
 	while (nElems--) {
