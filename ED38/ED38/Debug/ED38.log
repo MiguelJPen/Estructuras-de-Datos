@@ -1,0 +1,5 @@
+﻿  ED38.cpp
+c:\users\migui\documents\visual studio 2017\proyectos\migueljpen\estructuras-de-datos\ed38\ed38\ed38.cpp(56): warning C4018: '>': signed/unsigned mismatch
+c:\users\migui\documents\visual studio 2017\proyectos\migueljpen\estructuras-de-datos\ed38\ed38\ed38.cpp(41): warning C4101: 'e': unreferenced local variable
+c:\users\migui\documents\visual studio 2017\proyectos\migueljpen\estructuras-de-datos\ed38\ed38\ed38.cpp(65): warning C4101: 'e': unreferenced local variable
+  ED38.vcxproj -> C:\Users\Migui\Documents\Visual Studio 2017\Proyectos\MiguelJPen\Estructuras-de-Datos\ED38\Debug\ED38.exe

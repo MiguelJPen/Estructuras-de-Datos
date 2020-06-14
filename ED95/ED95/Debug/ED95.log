@@ -1,0 +1,5 @@
+﻿  ED95.cpp
+c:\users\migui\documents\visual studio 2017\proyectos\migueljpen\estructuras-de-datos\ed95\ed95\avisos.h(21): warning C4018: '<': signed/unsigned mismatch
+c:\users\migui\documents\visual studio 2017\proyectos\migueljpen\estructuras-de-datos\ed95\ed95\ed95.cpp(27): warning C4101: 'e': unreferenced local variable
+c:\users\migui\documents\visual studio 2017\proyectos\migueljpen\estructuras-de-datos\ed95\ed95\ed95.cpp(32): warning C4715: 'resuelveCaso': not all control paths return a value
+  ED95.vcxproj -> C:\Users\Migui\Documents\Visual Studio 2017\Proyectos\MiguelJPen\Estructuras-de-Datos\ED95\Debug\ED95.exe
